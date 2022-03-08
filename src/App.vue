@@ -4,6 +4,7 @@ import { defaultPlayList } from './constants'
 import SongList from './components/SongList.vue'
 import Player from './components/Player.vue'
 import { padLeft } from './utils/index'
+import useAudioVisaulization from './hooks/useAudioVisaulization/index'
 
 const playerRef = ref(null)
 const curTime = ref('00:00')
