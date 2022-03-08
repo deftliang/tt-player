@@ -5,9 +5,11 @@ specifiers:
   sass: ^1.49.9
   vite: ^2.8.0
   vue: ^3.2.25
+  web-vitals: ^2.1.4
 
 dependencies:
   vue: 3.2.31
+  web-vitals: 2.1.4
 
 devDependencies:
   '@vitejs/plugin-vue': 2.2.4_vite@2.8.6+vue@3.2.31
@@ -562,4 +564,8 @@ packages:
       '@vue/runtime-dom': 3.2.31
       '@vue/server-renderer': 3.2.31_vue@3.2.31
       '@vue/shared': 3.2.31
+    dev: false
+
+  /web-vitals/2.1.4:
+    resolution: {integrity: sha512-sVWcwhU5mX6crfI5Vd2dC4qchyTqxV8URinzt25XqVh+bHEPGH4C3NPrNionCP7Obx59wrYEbNlw4Z8sjALzZg==}
     dev: false
