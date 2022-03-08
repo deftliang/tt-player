@@ -1,19 +1,26 @@
 <script setup>
+import { ref } from 'vue'
+
 defineProps({
   playItem: Object,
 })
-
-// const play = emit('play')
+const emit = defineEmits(['play', 'pause'])
+const audioRef = ref(null)
+defineExpose({
+  audioRef,
+})
 </script>
 
 <template>
-  <div class="canvas"></div>
+  <div class="canvas">
+    <canvas id="canvas" width="500" height="300" />
+  </div>
   <div class="controls">
     <audio
       ref="audioRef"
       :src="playItem.url"
-      @play="play"
-      @pause="pause"
+      @play="emit('play')"
+      @pause="emit('pause')"
       controls
     ></audio>
   </div>

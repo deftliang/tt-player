@@ -1,16 +1,32 @@
 <script setup>
-const onUpload = () => {}
+defineProps({
+  playItem: Object,
+  playList: Array,
+})
+const emit = defineEmits(['setPlayItem', 'setPlayItem'])
 </script>
 
 <template>
   <div class="list-wrapper">
     <ul class="list">
-      <li class="item">123123</li>
+      <li
+        class="item"
+        :class="{ active: playItem.url === item.url }"
+        v-for="(item, index) in playList"
+        :key="index"
+        @click="emit('setPlayItem', item)"
+      >
+        {{ item.name }}
+      </li>
     </ul>
     <div class="uploader">
       <label>
         <span>添加</span>
-        <input type="file" @change="onUpload" accept="audio/*" />
+        <input
+          type="file"
+          @change="(e) => emit('onUpload', e)"
+          accept="audio/*"
+        />
       </label>
     </div>
   </div>
