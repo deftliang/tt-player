@@ -2,6 +2,7 @@ import dukou from "./assets/dukou.flac"
 import guyongzhe from "./assets/guyongzhe.flac"
 import zheshijienameduoren from "./assets/zheshijienameduoren.flac"
 import newThang from "./assets/new-thang.flac"
+import stay from "./assets/BLACKPINK-STAY.mp3"
 
 export const defaultPlayList = [
   {
@@ -19,5 +20,9 @@ export const defaultPlayList = [
   {
     name: "New Thang",
     url: newThang,
+  },
+  {
+    name: "BLACKPINK-STAY",
+    url: stay,
   },
 ]
