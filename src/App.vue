@@ -1,10 +1,15 @@
 <script setup>
-import { onMounted, ref, watch } from 'vue'
+import { onMounted, ref, watch, onBeforeUnmount } from 'vue'
 import { defaultPlayList } from './constants'
 import SongList from './components/SongList.vue'
 import Player from './components/Player.vue'
 import { padLeft } from './utils/index'
 import useAudioVisaulization from './hooks/useAudioVisaulization/index'
+
+const { visualize, stopVisualize, resetCanvas } = useAudioVisaulization(
+  '#canvas',
+  50
+)
 
 const playerRef = ref(null)
 const curTime = ref('00:00')
@@ -42,8 +47,18 @@ watch(playerRef, (_v, _ov, onInvalidate) => {
   }
 })
 
-const play = () => {}
-const pause = () => {}
+const play = (e) => {
+  stopVisualize()
+  const stream = e.target.captureStream()
+  visualize(stream)
+}
+const pause = () => {
+  resetCanvas()
+}
+
+onBeforeUnmount(() => {
+  stopVisualize()
+})
 </script>
 
 <template>

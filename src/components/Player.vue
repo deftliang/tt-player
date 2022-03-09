@@ -19,8 +19,8 @@ defineExpose({
     <audio
       ref="audioRef"
       :src="playItem.url"
-      @play="emit('play')"
-      @pause="emit('pause')"
+      @play="(e) => emit('play', e)"
+      @pause="(e) => emit('pause', e)"
       controls
     ></audio>
   </div>
