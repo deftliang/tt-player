@@ -47,8 +47,9 @@ watch(playerRef, (_v, _ov, onInvalidate) => {
   }
 })
 
-const play = (e) => {
+const play = async (e) => {
   stopVisualize()
+  await e.target.play()
   const stream = e.target.captureStream()
   visualize(stream)
 }
