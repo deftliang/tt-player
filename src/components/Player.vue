@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 
+const loaded = ref(false)
 defineProps({
   playItem: Object,
 })
@@ -19,7 +20,8 @@ defineExpose({
     <audio
       ref="audioRef"
       :src="playItem.url"
-      @play="(e) => emit('play', e)"
+      @load="loaded = true"
+      @play="(e) => (loaded ? emit('play', e) : null)"
       @pause="(e) => emit('pause', e)"
       controls
     ></audio>
