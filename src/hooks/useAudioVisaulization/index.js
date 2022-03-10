@@ -44,7 +44,7 @@ const useAudioVisualization = (el, len = 50) => {
   const resetCanvas = () => {
     const canvasEl = document.querySelector(el)
     if (canvasEl) {
-      const emptyDataArr = new Uint8Array(length).map(() => 0)
+      const emptyDataArr = new Uint8Array(len).map(() => 0)
       clearFloats()
       clearCanvas(canvasEl)
       drawFloats(canvasEl, emptyDataArr)
